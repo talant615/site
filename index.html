@@ -10,7 +10,6 @@
 <h2>OCCT WebGL Viewer Sample</h2>
 <div>
   <canvas id=occViewerCanvas oncontextmenu=event.preventDefault() tabindex=-1 style="border:0 none;background-color:#000" width="409" height="409"></canvas>
-  <img id=occlogo src="OCC_logo.png" style="position: absolute; left: 20px; top: 0px; z-index: 2;" />
 </div>
 
 <div>
@@ -18,7 +17,7 @@
   <input type="button" value="Clear All" onclick="OccViewerModule.removeAllObjects()">
   <input type="button" value="Fit All"   onclick="OccViewerModule.fitAllObjects(true)">
 </div>
-<p>Repository: <a href="https://github.com/gkv311/occt-webgl">https://github.com/gkv311/occt-webgl</a></p>
+
 <h4>Console output:</h4>
 <p id="output"></p>
 <script>
@@ -38,7 +37,7 @@ function updateCanvasSize()
   occViewerCanvas.width  = aSizeX * aDevicePixelRatio;
   occViewerCanvas.height = aSizeY * aDevicePixelRatio;
 
-  occlogo.style.top = (aSizeY - 30) + "px";
+
 }
 window.onresize = updateCanvasSize;
 updateCanvasSize();
