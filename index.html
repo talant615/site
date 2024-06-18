@@ -21,22 +21,27 @@
 <p id="output"></p>
 <script>
 //! Resize canvas to fit into window.
-function updateCanvasSize()
-{
-  // size of canvas in logical (density-independent) units
-  var aSizeX = Math.min (window.innerWidth,  window.screen.availWidth);
-  var aSizeY = Math.min (window.innerHeight, window.screen.availHeight);
-  aSizeX = Math.max (300, aSizeX - 30);
-  aSizeY = Math.max (300, aSizeY / 2);
-  occViewerCanvas.style.width  = aSizeX + "px";
+function updateCanvasSize() {
+  var aSizeX = Math.min(window.innerWidth, window.screen.availWidth);
+  var aSizeY = Math.min(window.innerHeight, window.screen.availHeight);
+  aSizeX = Math.max(300, aSizeX - 30);
+  aSizeY = Math.max(300, aSizeY / 2);
+
+  // Apply media queries for different screen sizes
+  if (aSizeX < 600) {
+    aSizeX = aSizeX * 0.9;
+    aSizeY = aSizeY * 0.9;
+  } else if (aSizeX < 900) {
+    aSizeX = aSizeX * 0.8;
+    aSizeY = aSizeY * 0.8;
+  }
+
+  occViewerCanvas.style.width = aSizeX + "px";
   occViewerCanvas.style.height = aSizeY + "px";
 
-  // drawing buffer size (aka backing store)
   var aDevicePixelRatio = window.devicePixelRatio || 1;
-  occViewerCanvas.width  = aSizeX * aDevicePixelRatio;
+  occViewerCanvas.width = aSizeX * aDevicePixelRatio;
   occViewerCanvas.height = aSizeY * aDevicePixelRatio;
-
-
 }
 window.onresize = updateCanvasSize;
 updateCanvasSize();
