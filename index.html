@@ -29,24 +29,22 @@
 <script>
 //! Resize canvas to fit into window.
 function updateCanvasSize() {
-  var aSizeX = window.innerWidth;
-  var aSizeY = window.innerHeight;
+  var aSizeX = Math.min(window.innerWidth, window.screen.availWidth);
+  var aSizeY = Math.min(window.innerHeight, window.screen.availHeight);
+  aSizeX = Math.max(300, aSizeX - 30);
+  aSizeY = Math.max(300, aSizeY / 2);
 
-  // Check if the device is in landscape mode
-  if (aSizeX > aSizeY) {
-    // If in landscape mode, stretch the canvas to full screen
-    occViewerCanvas.style.width = "100%";
-    occViewerCanvas.style.height = "100%";
-  } else {
-    // If in portrait mode, use the previous logic
-    aSizeX = Math.min(aSizeX, window.screen.availWidth);
-    aSizeY = Math.min(aSizeY, window.screen.availHeight);
-    aSizeX = Math.max(300, aSizeX - 30);
-    aSizeY = Math.max(300, aSizeY / 2);
-
-    occViewerCanvas.style.width = aSizeX + "px";
-    occViewerCanvas.style.height = aSizeY + "px";
+  // Apply media queries for different screen sizes
+  if (aSizeX < 600) {
+    aSizeX = aSizeX * 0.9;
+    aSizeY = aSizeY * 0.9;
+  } else if (aSizeX < 900) {
+    aSizeX = aSizeX * 0.8;
+    aSizeY = aSizeY * 0.8;
   }
+
+  occViewerCanvas.style.width = aSizeX + "px";
+  occViewerCanvas.style.height = aSizeY + "px";
 
   var aDevicePixelRatio = window.devicePixelRatio || 1;
   occViewerCanvas.width = aSizeX * aDevicePixelRatio;
