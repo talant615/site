@@ -7,26 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Полупрозрачная шапка -->
+    <!-- Шапка (фиксированная поверх карусели) -->
     <header class="sticky-header">
         <h1>Мой сайт</h1>
         <nav>
-            <a href="#">Главная</a>
-            <a href="#">О нас</a>
-            <a href="#">Контакты</a>
+            <a href="index.html" class="active">Главная</a>
+            <a href="about.html">О нас</a>
+            <a href="contacts.html">Контакты</a>
         </nav>
     </header>
 
-    <!-- Полноэкранная карусель -->
+    <!-- Карусель -->
     <div class="fullscreen-carousel">
-        <div class="carousel-slide active">
-            <img src="images/baner/image1.jpg" alt="Изображение 1">
-        </div>
-        <div class="carousel-slide">
-            <img src="images/baner/image2.png" alt="Изображение 2">
-        </div>
-        <div class="carousel-slide">
-            <img src="images/baner/image2.jpg" alt="Изображение 3">
+        <div class="carousel-inner">
+            <div class="carousel-slide active">
+                <img src="images/baner/image1.jpg" alt="Изображение 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/baner/image2.jpg" alt="Изображение 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="images/baner/image3.png" alt="Изображение 3">
+            </div>
         </div>
     </div>
 
@@ -34,12 +36,14 @@
     <main>
         <section>
             <h2>Добро пожаловать!</h2>
-            <p>Этот сайт имеет полноэкранную карусель и полупрозрачную шапку.</p>
+            <p>Этот сайт имеет карусель с шапкой поверх неё и обычный футер.</p>
+            <!-- Добавим контент для прокрутки -->
+            <div style="height: 1000px; background: rgba(255,255,255,0.1);"></div>
         </section>
     </main>
 
-    <!-- Подвал -->
-    <footer>
+    <!-- Обычный футер (не фиксированный) -->
+    <footer class="site-footer">
         <p>&copy; 2024 Мой сайт</p>
     </footer>
 
