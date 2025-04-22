@@ -3,26 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт</title>
+    <title>Сайт с каруселью</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Добро пожаловать!</h1>
+    <!-- Полупрозрачная шапка -->
+    <header class="sticky-header">
+        <h1>Мой сайт</h1>
         <nav>
             <a href="#">Главная</a>
             <a href="#">О нас</a>
             <a href="#">Контакты</a>
         </nav>
     </header>
+
+    <!-- Полноэкранная карусель -->
+    <div class="fullscreen-carousel">
+        <div class="carousel-slide active">
+            <img src="images/baner/image1.jpg" alt="Изображение 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/baner/image2.png" alt="Изображение 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/baner/image2.jpg" alt="Изображение 3">
+        </div>
+    </div>
+
+    <!-- Основной контент -->
     <main>
         <section>
-            <h2>О сайте</h2>
-            <p>Это мой первый сайт, размещённый на GitHub Pages.</p>
+            <h2>Добро пожаловать!</h2>
+            <p>Этот сайт имеет полноэкранную карусель и полупрозрачную шапку.</p>
         </section>
     </main>
+
+    <!-- Подвал -->
     <footer>
         <p>&copy; 2024 Мой сайт</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
